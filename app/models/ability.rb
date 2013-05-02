@@ -33,8 +33,10 @@ class Ability
 
     if user.has_role? :admin
       can :manage, :all
+      can :read, ActiveAdmin::Page, :name => "Dashboard"
     else
       can :read, :all
+      cannot :read, ActiveAdmin::Page, :name => "Dashboard"
     end
   end
 end
